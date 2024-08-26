@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PhoneApps : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class PhoneApps : MonoBehaviour
     public void CloseCall()
     {
         call.StopCalling();
+    }
+
+    public void OpenCamera()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 
     // Update is called once per frame

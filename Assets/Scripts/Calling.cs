@@ -33,7 +33,7 @@ public class Calling : MonoBehaviour
     {
         callApp.SetActive(true);
         audioS.PlayOneShot(ringging);
-        Handheld.Vibrate();
+        StartCoroutine(VibraCall());
         return isCalling;
     }
 
@@ -65,5 +65,18 @@ public class Calling : MonoBehaviour
         yield return new WaitForSeconds(8.0f);
         callApp.SetActive(false);
         StopCoroutine(PlayCall());
+    }
+
+    IEnumerator VibraCall()
+    {
+        do
+        {
+
+            yield return new WaitForSeconds(0.5f);
+            Handheld.Vibrate();
+
+        }while(isCalling);
+
+        StopCoroutine(VibraCall());
     }
 }
